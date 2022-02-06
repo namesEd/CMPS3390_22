@@ -14,12 +14,14 @@ public class Main {
         FoodItems[] foodItems = FoodItems.values();
         Tools[] tools = Tools.values();
         ToolUses[] toolUses = ToolUses.values();
+        Potions[] potions = Potions.values();
+        PotionUses[] potionUses = PotionUses.values();
 
         System.out.print("How many items do you want: ");
         int itemCnt = Integer.parseInt(scan.nextLine());
 
         for(int i = 0; i < itemCnt; i++) {
-            int type = ran.nextInt(2);
+            int type = ran.nextInt(3);
             switch(type) {
                 case 0:
                     int foodIndex = ran.nextInt(foodItems.length);
@@ -38,6 +40,14 @@ public class Main {
                     String use = toolUses[toolIndex].toString();
                     Tool tmpTool = new Tool(toolName, toolPrice, toolQty, use);
                     items.add(tmpTool);
+                case 2:
+                    int potionIndex = ran.nextInt(potions.length);
+                    String potionName = potions[potionIndex].toString();
+                    float potionPrice = ran.nextFloat(125);
+                    int potionQty = ran.nextInt(5);
+                    String uses = potionUses[potionIndex].toString();
+                    Potion tmpPotion = new Potion(potionName, potionPrice, potionQty, uses);
+                    items.add(tmpPotion);
             }
         }
 
