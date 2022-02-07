@@ -8,4 +8,5 @@ public enum ToolUses {
     ChopThings,
     PickThings,
     DigThings,
+    RakeThings,
 }
