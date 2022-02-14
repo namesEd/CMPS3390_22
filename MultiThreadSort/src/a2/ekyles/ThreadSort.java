@@ -30,7 +30,6 @@ public class ThreadSort extends Thread{
         System.out.println("Thread Complete");
     }
 
-
     public Item[] gettItems() {
         return tItems;
     }
