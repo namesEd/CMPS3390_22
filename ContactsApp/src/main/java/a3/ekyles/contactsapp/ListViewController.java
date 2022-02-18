@@ -2,16 +2,20 @@ package a3.ekyles.contactsapp;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import org.json.JSONObject;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class ListViewController {
@@ -22,6 +26,10 @@ public class ListViewController {
     GridPane newContact;
     @FXML
     TextField txtFirstName, txtLastName, txtPhone;
+    @FXML
+    MenuItem btnThemeDefault, btnThemeBlue, btnThemeDarkMode;
+    @FXML
+    VBox vboxMain;
 
     ContactComparator comparator = new ContactComparator();
 
@@ -62,7 +70,6 @@ public class ListViewController {
         }
     }
 
-
     @FXML
     protected void onNewContact(){
       setNewContactVis(true);
@@ -92,6 +99,23 @@ public class ListViewController {
     }
 
     @FXML
+    protected void onThemeChange(final ActionEvent event) {
+        String defaultCSS = Objects.requireNonNull(getClass().getResource("Default.css")).toString();
+        String blueCSS = Objects.requireNonNull(getClass().getResource("Blue.css")).toString();
+        String darkModeCSS = Objects.requireNonNull(getClass().getResource("DarkMode.css")).toString();
+        vboxMain.getScene().getStylesheets().removeAll(defaultCSS, blueCSS, darkModeCSS);
+
+        Object source = event.getSource();
+        if (btnThemeDefault.equals(source)) {
+            vboxMain.getScene().getStylesheets().add(defaultCSS);
+        } else if (btnThemeBlue.equals(source)) {
+            vboxMain.getScene().getStylesheets().add(blueCSS);
+        } else if (btnThemeDarkMode.equals(source)) {
+            vboxMain.getScene().getStylesheets().add(darkModeCSS);
+        }
+    }
+
+    @FXML
     protected void onDeleteContact(){
         Contact selectedContact = contactsList.getSelectionModel().getSelectedItem();
         if(selectedContact != null) {
@@ -104,5 +128,4 @@ public class ListViewController {
         newContact.setManaged(vis);
 
     }
-
 }
