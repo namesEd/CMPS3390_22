@@ -2,6 +2,7 @@ package a7.ekyles.androidchat;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -25,8 +26,10 @@ public class MainActivity extends AppCompatActivity {
         boolean nameIsValid = userName.matches("^\\w{2,9}[a-zA-Z0-9]$");
 
         if(nameIsValid) {
-        //Move to the next activity and chat
-        Log.i("LOGIN", "Name was vaild");
+            //Move to the next activity and chat
+            Log.i("LOGIN", "Name was valid");
+            Intent intent = ChatActivity.createIntent(this, userName);
+            startActivity(intent);
         } else {
             Log.i("LOGIN", "Name was NOT valid");
             Snackbar snackbar = Snackbar.make( txtUserName,
