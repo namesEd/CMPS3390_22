@@ -1,0 +1,38 @@
+.vbox, .list-view{
+    -fx-background-color: #232323;
+    -fx-text-base-color: #ffffff;
+}
+
+.tab-pane, .tab-header-background {
+    -fx-background-color: #28373b;
+    -fx-text-fill: #ffffff;
+}
+
+.tab{
+    -fx-text-base-color: ffffff;
+    -fx-background-color: #232323;
+}
+
+.text-field {
+    -fx-background-color: #000000;
+    -fx-text-fill: #ffffff;
+}
+
+.button {
+    -fx-background-color: #28373b;
+    -fx-text-fill: #ffffff;
+}
+
+.list-cell:filled:selected:focused, .list-cell:filled:selected {
+    -fx-text-fill: #ffffff;
+}
+
+.list-cell:odd {
+    -fx-background-color: #1c2224;
+    -fx-text-fill: #ffffff;
+}
+
+.list-cell:even {
+    -fx-background-color: #292828;
+    -fx-text-fill: #ffffff;
+}
