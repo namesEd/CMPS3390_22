@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Point;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +18,9 @@ public class Board {
     private final int pegRadius;
     private final int rowVertSpace;
     private final int rowYOffset;
+    private int currentRow = 0;
+    private PlayButton playButton;
+    private final List<Integer> solutionList = new ArrayList<>();
 
     private Bitmap background;
 
@@ -36,8 +40,11 @@ public class Board {
         pegRadius = Math.round(background.getHeight() / 35f);
         rowYOffset = Math.round(pegRadius + background.getHeight() / 30f);
         rowVertSpace = Math.round(pegRadius + (background.getHeight() / 14.7f));
-
         generatePegs();
+        Point tmp = new Point();
+        tmp.x = Math.round(pegList.get(currentRow * 4 + 3).getPos().x + pegRadius * 1.2f);
+        tmp.y = pegList.get(currentRow * 4 + 3).getPos().y;
+        playButton = new PlayButton(tmp, Math.round(pegRadius * 0.9f));
     }
 
     private void generatePegs() {
@@ -52,7 +59,9 @@ public class Board {
 
         //Set Solution
         for(int i = pegList.size()-1; i > pegList.size() -5; i --) {
-            pegList.get(i).setColor((int) (Math.random() * 5 + 1));
+            int tmp = (int)(Math.random() * 5 + 1);
+            solutionList.add(0, tmp);
+            pegList.get(i).setColor(tmp);
         }
 
     }
@@ -61,13 +70,34 @@ public class Board {
         canvas.drawBitmap(background, boardXPos, 0, paint);
         for(Peg p : pegList) {
             p.draw(canvas);
+            playButton.draw(canvas);
         }
     }
 
-    public void onClick(int x, int y){
+    public void onClick(int x, int y) {
         Point point = new Point(x, y);
-        for(Peg p : pegList){
-            p.isPegClicked(point);
+        for (int i = currentRow * 4; i < currentRow * 4 + 4; i++) {
+            pegList .get(i).isPegClicked(point);
         }
+
+        if(playButton.isPlayButtonClicked(point)) {
+            evaluateRow();
+        }
+
+    }
+
+    private void evaluateRow() {
+        //check our answers against the solution
+        List<Integer> rowList = new ArrayList<>();
+        for (int i = 0; i < 4; i ++) {
+            rowList.add(pegList.get(currentRow * 4 + i).selectedPaint);
+        }
+        // advance current row
+         advanceCurrentRow();
+    }
+
+    private void advanceCurrentRow() {
+        currentRow ++;
+        playButton.moveDown(rowVertSpace);
     }
 }
