@@ -24,7 +24,7 @@ public class Peg {
         paints.get(0).setARGB(255, 50, 50, 50);     //0 Dark Grey
         paints.get(1).setARGB(255, 255, 0, 0);      //1 Red
         paints.get(2).setARGB(255, 0, 0, 255);      //2 Blue
-        paints.get(3).setARGB(255, 0, 255, 0);      //3 Green
+        paints.get(3).setARGB(255, 0, 102, 0);      //3 Green
         paints.get(4).setARGB(255, 255, 255, 0);    //4 Yellow
         paints.get(5).setARGB(255, 255, 165, 0);    //5 Orange
         this.radius = radius;
