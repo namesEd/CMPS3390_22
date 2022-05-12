@@ -1,4 +1,4 @@
-package a9.ekyles.mobiletodo;
+package a11.ekyles.caloriecounter;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity implements OnItemListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        selectedTab = getResources().getString(R.string.home);
+        selectedTab = getResources().getString(R.string.breakfast);
 
         listItems = findViewById(R.id.listItems);
         listItems.setAdapter(new RecyclerAdapter(this, items, this));
@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity implements OnItemListener {
 
     }
 
-     private void getItems(){
+    private void getItems(){
         DatabaseReference ref = database.getReference(selectedTab);
         ref.addValueEventListener(new ValueEventListener() {
             @Override
@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity implements OnItemListener {
 
             }
         });
-     }
+    }
 
     @Override
     public void onItemClicked(int position) {

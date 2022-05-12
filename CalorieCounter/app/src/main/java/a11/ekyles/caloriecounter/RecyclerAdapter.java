@@ -1,4 +1,4 @@
-package a9.ekyles.mobiletodo;
+package a11.ekyles.caloriecounter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,12 +11,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.ViewHolder> {
+public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
     private List<Item> items;
     private Context context;
     private OnItemListener onItemListener;
 
-    public RecycleAdapter(Context context, List<Item> items, OnItemListener onItemListener) {
+    public RecyclerAdapter(Context context, List<Item> items, OnItemListener onItemListener) {
         this.items = items;
         this.context = context;
         this.onItemListener = onItemListener;

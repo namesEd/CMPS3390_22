@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "948794616814",
+    "project_id": "caloriecounter-776bc",
+    "storage_bucket": "caloriecounter-776bc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:948794616814:android:5efbc4bcc2ffb915dc7cff",
+        "android_client_info": {
+          "package_name": "a11.ekyles.caloriecounter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "948794616814-v7hgbg7svs4j1u84stgt1bo267uuhrcu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhXQfD85mFbzQb0v4i5HbpXxGWNmgTuGg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "948794616814-v7hgbg7svs4j1u84stgt1bo267uuhrcu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">CalorieCounter</string>
+    <string name="message">Pizza, Chicken, etc.</string>
+    <string name="btnAdd">Add</string>
+    <string name="strHeader">Daily Calories</string>
+    <string name="todo_item">Add Calorie Item</string>
+    <string name="breakfast">Breakfast</string>
+    <string name="Lunch">Lunch</string>
+    <string name="Dinner">Dinner</string>
+    <string name="snacks">Snacks</string>
+</resources>
