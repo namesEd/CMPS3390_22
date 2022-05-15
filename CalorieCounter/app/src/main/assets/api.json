@@ -1,5 +1,6 @@
 {
   "apikey": "Nm0jEIYwlWN8P9F7fqHQig==GRRXX66zSWQMmYl6",
-  "queryURL": "https://api.calorieninjas.com/v1/nutrition?query="
+  "queryURL": "https://api.calorieninjas.com/v1/nutrition?query=",
+  "apiHeader": "X-Api-Key"
 
 }

@@ -13,6 +13,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
@@ -38,10 +40,27 @@ public class APIBridge {
 
         try {
             JSONObject jsonObject = new JSONObject(apiJson);
+            this.apiKey = jsonObject.getString("apikey");
+            this.stringQueryURL = jsonObject.getString("queryURL");
             Log.i("JSON", "We have a json object");
         } catch (JSONException e) {
             e.printStackTrace();
         }
+
+    }
+
+    public void GenerateCalorieModel(String item) {
+        String url = null;
+        try {
+            url = String.format(this.stringQueryURL,
+                    URLEncoder.encode(item, String.valueOf(StandardCharsets.UTF_8)), this.apiKey);
+
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        Log.i("REST", url);
+    }
+
 /*
   String query = "pizza";
     Response response = DownloadManager.Request.Get("https://api.calorieninjas.com/v1/nutrition?query="+query)
@@ -53,5 +72,5 @@ public class APIBridge {
     }
 
  */
-    }
+
 }

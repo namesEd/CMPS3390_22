@@ -57,6 +57,7 @@ public class MainActivity extends AppCompatActivity implements OnItemListener {
         listItems.setLayoutManager(new LinearLayoutManager(this));
 
 
+
         tabLists = findViewById(R.id.tabLists);
         tabLists.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -124,6 +125,7 @@ public class MainActivity extends AppCompatActivity implements OnItemListener {
                 }
                 listItems.getAdapter().notifyDataSetChanged();
                 calorieAmount.getAdapter().notifyDataSetChanged();
+
             }
 
             @Override

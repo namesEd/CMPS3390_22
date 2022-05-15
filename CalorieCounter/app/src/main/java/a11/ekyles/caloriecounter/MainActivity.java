@@ -97,6 +97,8 @@ public class MainActivity extends AppCompatActivity implements OnItemListener, U
             String path = URLEncoder.encode(item.getDesc(), String.valueOf(StandardCharsets.UTF_8));
             DatabaseReference ref = database.getReference(selectedTab + "/" + path);
             ref.setValue(item);
+            //Logs the API when a new item is added to the database
+            apiBridge.GenerateCalorieModel(item.getDesc());
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
