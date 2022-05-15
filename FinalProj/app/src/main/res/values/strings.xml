@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">FinalProj</string>
+    <string name="message">Type here</string>
+    <string name="btnAdd">Add</string>
+    <string name="strHeader">Header</string>
+    <string name="todo_item">Add Comment</string>
+    <string name="first">First</string>
+    <string name="second">Second</string>
+    <string name="third">Third</string>
+    <string name="fourth">Fourth</string>
+    <string name="location">Location:</string>
+    <string name="lab_current">Current:</string>
+    <string-array name="locations">
+        <item>Bakersfield,Ca,USA</item>
+        <item>Las Vegas,NV,USA</item>
+        <item>Baltimore,MD,USA</item>
+        <item>New York,NY,USA</item>
+        <item>Boca Raton,FL,USA</item>
+        <item>Anchorage,AK,USA</item>
+        <item>Tura,RU</item>
+        <item>Zug,EH</item>
+    </string-array>
+</resources>
