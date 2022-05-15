@@ -18,12 +18,12 @@ import java.util.Scanner;
 
 public class APIBridge {
 
-    private String apiKey;
+    private String apiKey, stringQueryURL;
     private UIBind uiBind;
     private CalorieModel calorieModel = new CalorieModel();
-/*
-    public APIBridge(UIBind uiBind, Context context) {
 
+    public APIBridge(UIBind uiBind, Context context) {
+        this.uiBind = uiBind;
         String apiJson = null;
         try {
             InputStream is = context.getAssets().open("api.json");
@@ -42,7 +42,7 @@ public class APIBridge {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
+/*
   String query = "pizza";
     Response response = DownloadManager.Request.Get("https://api.calorieninjas.com/v1/nutrition?query="+query)
             .addHeader("X-Api-Key", "apikey")
@@ -53,4 +53,5 @@ public class APIBridge {
     }
 
  */
+    }
 }

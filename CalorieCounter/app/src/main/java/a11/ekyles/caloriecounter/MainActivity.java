@@ -28,7 +28,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Objects;
 
-public class MainActivity extends AppCompatActivity implements OnItemListener {
+public class MainActivity extends AppCompatActivity implements OnItemListener, UIBind {
 
     private TabLayout tabLists;
     private EditText txtTodoItem;
@@ -36,6 +36,8 @@ public class MainActivity extends AppCompatActivity implements OnItemListener {
     private String selectedTab;
     private ArrayList<Item> items = new ArrayList<>();
     private final FirebaseDatabase database = FirebaseDatabase.getInstance();
+
+    private APIBridge apiBridge;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +49,9 @@ public class MainActivity extends AppCompatActivity implements OnItemListener {
         listItems.setAdapter(new RecyclerAdapter(this, items, this));
         listItems.setLayoutManager(new LinearLayoutManager(this));
 
-        tabLists = findViewById(R.id.tabLists);
+        this.apiBridge = new APIBridge(this, getApplicationContext());
+
+                tabLists = findViewById(R.id.tabLists);
         tabLists.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
@@ -131,5 +135,10 @@ public class MainActivity extends AppCompatActivity implements OnItemListener {
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void calUI(CalorieModel calorieModel) {
+
     }
 }
