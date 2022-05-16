@@ -4,9 +4,14 @@ import android.app.DownloadManager;
 import android.content.Context;
 import android.util.Log;
 
+import androidx.recyclerview.widget.RecyclerView;
+
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.android.volley.Request;
+import com.android.volley.toolbox.StringRequest;
 import com.google.android.gms.common.api.Response;
 
 import java.io.File;
@@ -59,7 +64,30 @@ public class APIBridge {
             e.printStackTrace();
         }
         Log.i("REST", url);
+
+        /*unfinished :(
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+
+                response -> {
+                    Log.i("REST", String.valueOf(response));
+                    try{
+                        JSONArray tmp = new JSONArray((response));
+                        //calorieModel.
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                });
+
+
+
+
+
+
+    public void getCalories(String text) {
+        String url = String.format(this.stringQueryURL, text, this.apiKey);
+
     }
+*/
 
 /*
   String query = "pizza";
@@ -73,4 +101,5 @@ public class APIBridge {
 
  */
 
+    }
 }
